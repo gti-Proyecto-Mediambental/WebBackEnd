@@ -1,0 +1,49 @@
+<div>
+     <form action="/guardarMedicionesWeb" method="POST">
+        <input type="text" name="latitud" placeholder="latitud">
+        <input type="text" name="longitud" placeholder="longitud">
+        <input type="text" name="co2" placeholder="co2">
+        <input type="text" name="fecha" placeholder="2000-00-00">
+        <input type="text" name="hora" placeholder="23:59:59">
+        <button type="submit">
+            Save
+        </button>
+    </form>
+    <form action="/obtenerMedicionesWeb">
+        <button type="submit">
+            Obtener Mediciones
+        </button>
+    </form>
+    <div class="col-md-7">
+        <table class="table table-striped table-hover table-bordered table-sm bg-white">
+            <thead>
+                <tr>
+                <td>id   </td>
+                <td>latitud  </td>
+                <td>longitud  </td>
+                <td>co2  </td>
+                <td>fecha  </td>
+                <td>hora  </td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for medida in medidas %}
+                <tr>
+                <td>{{medida.0}}</td>
+                <td>{{medida.1}}</td>
+                <td>{{medida.2}}</td>
+                <td>{{medida.3  }}</td>
+                <td>{{medida.4  }}</td>
+                <td>{{medida.5  }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <form action="/obtenerUltimasMedicionesWeb" method="GET">
+        <button type="submit">
+            Obtener Ultimas Mediciones
+        </button>
+        <input type="text" name="cantidadMedicioes" placeholder="cantidadMedicioes">
+    </form>
+</div>
